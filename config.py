@@ -15,6 +15,7 @@ class DevConfig(Config):
     Args:
         Config:takes the configuration child class as an argument 
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:7166@localhost/book'
 
     DEBUG = True
 
