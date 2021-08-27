@@ -5,6 +5,7 @@ from . import auth
 from . forms import RegistrationForm, LoginForm
 from ..models import User
 from .. import db
+from ..email import mail_message
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -31,6 +32,7 @@ def register():
                 username=form.username.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
+        mail_message("Welcome to your spa services spot","email/welcome_user",user.email,user=user)
         flash('Your account have been created successfully!', 'success')
         return redirect(url_for('auth.login'))
 
