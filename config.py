@@ -37,8 +37,8 @@ class ProdConfig(Config):
         Config: takes the parent configuration class as an argument
     '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-      SQLALCHEMY_DATABASE_URI= SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+    # if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+    #   SQLALCHEMY_DATABASE_URI= SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
 
 
 
