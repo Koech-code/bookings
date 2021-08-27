@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div class="container" id="bgcolor">
+    
+    <div class="row">
+    <div class="col-md-6"> </div>
+    <div class="col-md-12">
+    <p style="text-align: center; font-size: 30px;">LOGIN</p>    
+    {{wtf.quick_form(login_form, button_map={'submit':'success'})}}
+    <br>
+    <p class="login-text" id="option-signup">Don't have an account? <a href="/register">Register</a></p>
+    </div>
+    <div class="col-md-2"></div>
+    </div>
+    </div>
+
+    
+{% endblock%}

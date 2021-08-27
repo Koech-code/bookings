@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% block content%}
+    <div class="card" style="width: 50rem; margin-left: 30%;">
+        <img src="{{url_for('static', filename='images/contact.jpg')}}" alt="">
+        <div class="card-body">
+          <h2 class="card-title">Feedback form</h2>
+          {{wtf.quick_form(form, button_map={'submit':'success'})}}
+          <br>
+        </div>
+        <img src="{{url_for('static', filename='images/icons.png')}}" alt="">
+      </div>
+      
+{% endblock%}
