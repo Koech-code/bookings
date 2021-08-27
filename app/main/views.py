@@ -76,6 +76,19 @@ def edit_session(id):
         return redirect(url_for('main.homepage') )
     return redirect(url_for('main.index'))
 
+@main.route('/edit_available/<int:id>',methods=['POST','GET'])
+@login_required
+def edit_available(id):
+    art=Session.query.filter_by(id=id).first()
+    print(art)
+    if art is None:
+        abort(404)
+    
+    art=Session.query.filter_by(id=id).first()
+    com_to=Session(tarehe=art.tarehe, service=art.service, email=current_user.email, status='Booked')
+    db.session.add(com_to)
+    db.session.commit()
+    return redirect(url_for('main.homepage') )
 
 @main.route('/homepage')
 @login_required
@@ -100,3 +113,5 @@ def contact():
         db.session.commit()
         return redirect(url_for('main.index'))
     return render_template('contact.html',form=form)
+
+

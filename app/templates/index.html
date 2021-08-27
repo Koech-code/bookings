@@ -108,7 +108,7 @@
                             <td>{{session.service}}</td>
                             <td>{{session.email}}</td>
                             <td>{{session.status}}</td>
-                            <td><a href="{{url_for('main.edit_session', id=session.id)}}"><button>Book service</button></a></td>     
+                            <td><a href="{{url_for('main.edit_available', id=session.id)}}"><button>Book service</button></a></td>     
                         </tr>
                         {% endfor%}
                     </tbody>
