@@ -7,6 +7,7 @@ class Config:
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:7166@localhost/book'
+    
 
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -35,7 +36,7 @@ class ProdConfig(Config):
     Args:
         Config: takes the parent configuration class as an argument
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:7166@localhost/book'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
       SQLALCHEMY_DATABASE_URI= SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
 
