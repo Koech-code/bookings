@@ -7,7 +7,10 @@ class Config:
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:7166@localhost/book'
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+      SQLALCHEMY_DATABASE_URI= SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
 
+    
 
 class DevConfig(Config):
     '''
