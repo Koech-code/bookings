@@ -23,19 +23,13 @@
 - HEROKU
 
 ### User Stories
-As a user I would like to;
+As a customer I would like to;
 
-- view the blogs on the site.
-- comment on the blogs.
-- view the most recent blogs.
-- have an email alert when a new post is made by joining a subscription.
-- see random quotes on the site 
-
-As a writer I would like to;
-- sign in to the blog
-- create a blog from the application
-- delete comments that I find insulting or degrading.
-- update or delete blogs I have created.
+- Create an account  
+- login to the application
+- see the available SPA services
+- book a service you want
+- cancel a booked service.
 
 ## Specifications:
 These are the actions the user will do, inputs required and their outputs on the page. 

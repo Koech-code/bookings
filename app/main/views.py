@@ -6,7 +6,7 @@ from ..models import Cancel, Contact, Session
 from . import main
 from .forms import BookForm,FeedbackForm
 from .. import db
-from flask_login import login_required
+from flask_login import login_required,current_user
 
 
 @main.route('/')
@@ -35,7 +35,7 @@ def book():
         booking=Session(tarehe=tarehe, service=service, email=email, status='Booked')  
         db.session.add(booking)
         db.session.commit()
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.homepage'))
     return render_template('book.html',title=title,form=form)
 
 @main.route('/delete_post/<int:id>',methods=['POST','GET'])
@@ -49,7 +49,7 @@ def del_posts(id):
    db.session.delete(com_to_del)
    db.session.commit()
    flash('You have successfully cancelled a booked service', 'success')
-   return redirect(url_for('main.index'))
+   return redirect(url_for('main.homepage'))
 
 @main.route('/edit_post/<int:id>',methods=['POST','GET'])
 @login_required
@@ -65,15 +65,15 @@ def edit_session(id):
         db.session.commit()
         db.session.delete(art)
         db.session.commit()
-        return redirect(url_for('main.index') )
+        return redirect(url_for('main.homepage') )
     else:
         art=Cancel.query.filter_by(id=id).first()
-        com_to=Session(tarehe=art.tarehe, service=art.service, email=art.email, status='Booked')
+        com_to=Session(tarehe=art.tarehe, service=art.service, email=current_user.email, status='Booked')
         db.session.add(com_to)
         db.session.commit()
         db.session.delete(art)
         db.session.commit()
-        return redirect(url_for('main.index') )
+        return redirect(url_for('main.homepage') )
     return redirect(url_for('main.index'))
 
 
