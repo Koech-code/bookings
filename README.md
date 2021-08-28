@@ -28,7 +28,7 @@ As a customer I would like to;
 - Create an account  
 - login to the application
 - see the available SPA services
-- book a service you want
+- book a service I want
 - cancel a booked service.
 
 ## Specifications:
