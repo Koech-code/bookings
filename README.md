@@ -1,4 +1,4 @@
-## BLOG-POST APP 
+## SPA BOOKING APP
 
 ### Description
 > This is an SPA booking web application.
